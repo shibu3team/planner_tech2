@@ -6,7 +6,6 @@ class Plan < ApplicationRecord
   validates :timezone, length:{ in: 1..3 }
   validates :user_id, presence: true
 
-
   belongs_to :user
   has_many :reviews, :dependent => :destroy
   has_many :favorites, :dependent => :destroy
