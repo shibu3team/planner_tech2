@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PlannerTech2</title>
+    <title>Planner</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <nav class="navbar navbar-default navber-fixed-top navbar-transparent">
+      <div class="container">
+        <%= link_to "" do %>
+          <span><%= image_tag "", class: "navbar-brand" %></span>
+        <% end %>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% if session[:user_id] %>
+            <%= link_to session[:user_id], "#", class:"login-user" %>
+          <% else %>
+            <%= link_to "ログインしていません", "#", class: "login-user" %>
+          <% end %>
+        </li>
+
+        <% if session[:user_id] %>
+          <li>
+            <%= link_to "#" do %>
+              <%= image_tag "" %>
+            <%end%>
+          </li>
+
+          <li>
+            <%= link_to "#" do %>
+              <%= image_tag "" %>
+            <%end%>
+          </li>
+
+
+          <li>
+            <%= link_to logout_path, method: :delete, data: {confirm: 'ログアウトしますか?' } do %>
+              <%= image_tag "icons/logout.png" %>
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "#" do %>
+            <%= image_tag "" %>
+            <%end%>
+          </li>
+
+        <% end %>
+      </ul>
+      </div>
+    </nav>
+
+
+    <% if flash[:notice] %>
+    　　<div class="alert alert-success">
+         <%= flash[:notice] %>
+    　　</div>
+    <% end %>
+    <% if flash[:alert] %>
+    　　<div class="alert alert-danger">
+    　　　　<%= flash[:alert] %>
+    　　</div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
