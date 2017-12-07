@@ -9,47 +9,39 @@
   </head>
   <body>
     <nav class="navbar navbar-default navber-fixed-top navbar-transparent">
-      <div class="container">
-        <%= link_to "" do %>
-          <span><%= image_tag "", class: "navbar-brand" %></span>
-        <% end %>
+      <!-- <div class="container"> -->
+            <%= link_to "Planner", "#", class:"navbar-brand" %>
 
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <% if session[:user_id] %>
-            <%= link_to session[:user_id], "#", class:"login-user" %>
-          <% else %>
-            <%= link_to "ログインしていません", "#", class: "login-user" %>
-          <% end %>
-        </li>
 
         <% if session[:user_id] %>
           <li>
-            <%= link_to "#" do %>
-              <%= image_tag "" %>
-            <%end%>
+            <%= link_to "ユーザー登録編集" %>
           </li>
 
           <li>
-            <%= link_to "#" do %>
-              <%= image_tag "" %>
-            <%end%>
+            <%= link_to "#" %>
           </li>
 
 
           <li>
-            <%= link_to logout_path, method: :delete, data: {confirm: 'ログアウトしますか?' } do %>
-              <%= image_tag "" %>
-            <% end %>
+            <%= link_to "ログアウト", logout_path,  method: :delete, data: {confirm: 'ログアウトしますか?' } %>
+          </li>
+
+          <li>
+            <%= link_to "ログイン中: #{session[:user_id]}", "#", class:"login-user" %>
           </li>
         <% else %>
           <li>
-            <%= link_to "#" do %>
-            <%= image_tag "" %>
-            <%end%>
+            <%= link_to "#"%>
+          </li>
+
+          <li>
+            <%= link_to "ログインしていません", "#", class: "login-user" %>
           </li>
 
         <% end %>
+
       </ul>
       </div>
     </nav>
