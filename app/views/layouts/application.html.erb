@@ -10,17 +10,17 @@
   <body>
     <nav class="navbar navbar-default navber-fixed-top navbar-transparent">
       <!-- <div class="container"> -->
-            <%= link_to "Planner", "#", class:"navbar-brand" %>
+            <%= link_to "Planner", users_path, class:"navbar-brand" %>
 
       <ul class="nav navbar-nav navbar-right">
 
         <% if session[:user_id] %>
           <li>
-            <%= link_to "ユーザー登録編集" %>
+            <%= link_to "ユーザー登録編集", edit_user_path(session[:user_id]) %>
           </li>
 
           <li>
-            <%= link_to "#" %>
+            <%= link_to "投稿一覧" %>
           </li>
 
 

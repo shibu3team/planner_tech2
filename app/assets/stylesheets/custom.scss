@@ -87,6 +87,7 @@ h1,h2 {
 .form-control{
   height: 45px;
   float: right;
+  margin-bottom: 10px;
 }
 
 .users-new-wrapper{
@@ -111,6 +112,40 @@ h1,h2 {
 
     .form-group{
       margin-bottom: 5px;
+    }
+
+    h3{
+      margin-top: 50px;
+      margin-bottom: 5px
+    }
+  }
+  .btn-block:hover{
+      color: #fff
+    }
+}
+
+.users-edit-wrapper{
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url("./user_new_background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+
+
+  .login-title{
+    margin-top: 50px;
+  }
+
+  .users-edit-container {
+    padding-top: 5px;
+
+
+    .form-group{
+      margin-bottom: 15px;
     }
 
     h3{

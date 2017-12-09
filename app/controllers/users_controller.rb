@@ -13,21 +13,26 @@ class UsersController < ApplicationController
     end
   end
 
-
-  def index
-    @user = User.find_by(id:params[:id])
-
+  def edit
+    @user = current_user
   end
 
-  def edit
+  def update
+    @user = current_user
+    @user.name = params[:name]
+    @user.email = params[:email]
+    binding.pry
+    if @user.save
+      flash[:notice] = "ユーザー情報を編集しました"
+      redirect_to("/users/#{@user.id}")
+    else
+      render :edit
+    end
   end
 
 private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(user).permit(:name, :email, :password, :password_confirmation)
   end
-
-
-
 
 end
