@@ -21,6 +21,8 @@ class UsersController < ApplicationController
     @user = current_user
     @user.name = params[:name]
     @user.email = params[:email]
+    @user.profile = params[:profile]
+    @user.password = params[:password]
     binding.pry
     if @user.save
       flash[:notice] = "ユーザー情報を編集しました"
@@ -32,7 +34,7 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(user).permit(:name, :email, :password, :password_confirmation)
+    params.require(user).permit(:name, :email, :profile, :password, :password_confirmation)
   end
 
 end

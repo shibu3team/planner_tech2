@@ -5,6 +5,8 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+# config.action_controller.action_on_unpermitted_parameters = :raise
+
 
 module PlannerTech2
   class Application < Rails::Application
