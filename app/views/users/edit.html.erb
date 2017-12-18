@@ -28,15 +28,6 @@
             <%= f.text_area :profile, placeholder:"プロフィールを入力", size: "20x5", class: "form-control"%>
           </div>
 
-                    <div class="form-group">
-                      <%= f.label :password, "新しいパスワード", class: "text-white"%>
-                      <%= f.password_field :password, class: "form-control"%>
-                    </div>
-                    <div class="form-group">
-                      <%= f.label :password_confirmation, "新しいパスワード(再入力)", class: "text-white"%>
-                      <%= f.password_field :password_confirmation, class: "form-control"%>
-                    </div>
-
 
 
 
@@ -44,7 +35,7 @@
 
           <%= f.submit "登録", class: "btn-block btn-white" %>
         <% end %>
-        <%= link_to "パスワードを変更する", edit_user_path, class: "btn-login text-black" %>
+        <%= link_to "パスワードを変更する", '/users/:id/edit/password', class: "btn-login text-black" %>
       </div>
     </div>
   </div>
