@@ -18,15 +18,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    @user.name = params[:name]
-    @user.email = params[:email]
-    @user.profile = params[:profile]
-    @user.password = params[:password]
+    @user = User.find(params[:id])
     binding.pry
-    if @user.save
-      flash[:notice] = "ユーザー情報を編集しました"
-      redirect_to("/users/#{@user.id}")
+    if @user.update_attributes(user_params)
+          redirect_to "/", notice: '更新しました'
     else
       render :edit
     end
@@ -34,7 +29,7 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(user).permit(:name, :email, :profile, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :profile, :password, :password_confirmation)
   end
 
 end
