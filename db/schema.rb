@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204104814) do
+ActiveRecord::Schema.define(version: 20171219034134) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -81,6 +81,9 @@ ActiveRecord::Schema.define(version: 20171204104814) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.text "profile"
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
     t.index ["email"], name: "uq_users_02", unique: true
     t.index ["name"], name: "uq_users_01", unique: true
   end
