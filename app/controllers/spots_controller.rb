@@ -18,8 +18,15 @@ class SpotsController < ApplicationController
     end
   end
 
+  def show
+    @spot = Spot.find_by(id:params[:id])
+  end
+
+
   def edit
   end
+
+
 
   def update
   end
