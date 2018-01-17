@@ -65,6 +65,21 @@ h1,h2 {
   }
 
 }
+.btn-black{
+  color: black;
+  border: 1px solid #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  background-color: rgba(0,0,0,0.0);
+
+  &:hover{
+    color: #fff
+  }
+
+}
+
+
 
 .top-hero-wrapper {
   width: 100vw;
@@ -432,3 +447,23 @@ h1,h2 {
 
 
           }
+
+
+          .plans-new-wrapper{
+            width: 100vw;
+            height: 100vh;
+
+            background-image: url("./user_new_background.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-color: #464646;
+
+            h1{
+              margin: 50px;
+            }
+
+
+
+              }
