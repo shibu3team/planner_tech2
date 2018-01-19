@@ -11,8 +11,9 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
+    binding.pry
     if @plan.save
-      redirect_to new_spot_path, notice: "登録が完了しました"
+      redirect_to plan_path(@plan.id), notice: "登録が完了しました"
     else
       flash.now[:alert] = "登録に失敗しました"
       render :new
