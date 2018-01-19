@@ -7,7 +7,7 @@ class PasswordsController < ApplicationController
     def update
       @user = User.find(params[:id])
       if @user.update_attributes(user_params)
-            redirect_to "/", notice: '更新しました'
+            redirect_to root_path, notice: '更新しました'
       else
         render :edit
       end
