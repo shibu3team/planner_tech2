@@ -7,9 +7,12 @@ Rails.application.routes.draw do
 
   resources 'users'
   resources 'spots'
-  resources 'plans'
-  resources 'plan_spot'  
+
+  resources :plans do
+    resources :spots
+  end
+
   get    '/users/:id/edit/password', to: 'passwords#edit'
-  get    '/plans/:plan_id/spot/new', to: 'spots#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
