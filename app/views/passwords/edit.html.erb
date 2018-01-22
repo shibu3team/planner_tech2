@@ -1,0 +1,22 @@
+<div class="users-edit-wrapper">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4 users-edit-container">
+        <h1 class="text-center text-white login-title">edit</h1>
+        <%= form_for @user do |f| %>
+<!-- password#editへのパス指定してあげる -->
+        <% @user.errors.full_messages.each do |user| %>
+          <div class="form-error text-red">
+            <%= user %>
+          </div>
+        <% end %>
+
+  
+          <%= f.submit "登録", class: "btn-block btn-white" %>
+        <% end %>
+          <%= link_to "戻る", '/users/:id/edit', class: "btn-login text-black" %>
+      </div>
+    </div>
+  </div>
+</div>

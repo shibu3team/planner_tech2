@@ -1,0 +1,43 @@
+<div class="plans-new-wrapper">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-offset-5 col-md-4 spots-new-container">
+        <h1 class="text-center text-white login-title">New Plan</h1>
+        <%= form_for @plan do |f| %>
+
+        <% @plan.errors.full_messages.each do |plan| %>
+          <div class="form-error text-red">
+            <%= plan %>
+          </div>
+        <% end %>
+
+          <div class="form-group">
+            <%= f.label :name, class: "text-black"%>
+            <%= f.text_field :name, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :description, class: "text-black"%>
+            <%= f.text_area :description, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :time, class: "text-black"%>
+            <%= f.text_field :time, class: "form-control"%>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :price, class: "text-black"%>
+            <%= f.text_field :price, class: "form-control"%>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :time_category, class: "text-black"%>
+            <%= f.text_field :time_category, class: "form-control"%>
+          </div>
+
+          <%= f.submit "プラン作成", class: "btn-block btn-black" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

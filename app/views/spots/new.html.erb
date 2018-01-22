@@ -1,0 +1,48 @@
+<div class="spots-new-wrapper">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-offset-5 col-md-4 spots-new-container">
+        <h1 class="text-center text-white login-title">New Spot</h1>
+        <%= form_for @spot do |f| %>
+
+        <% @spot.errors.full_messages.each do |spot| %>
+          <div class="form-error text-red">
+            <%= spot %>
+          </div>
+        <% end %>
+
+
+<% console %>
+          <div class="form-group">
+            <%= f.label :name, class: "text-white"%>
+            <%= f.text_field :name, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :address, class: "text-white"%>
+            <%= f.text_field :address, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :spot_time, class: "text-white"%>
+            <%= f.text_field :spot_time, class: "form-control"%>
+          </div>
+
+
+          <div class="form-group">
+            <%= f.label :price, class: "text-white"%>
+            <%= f.text_field :price, class: "form-control"%>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :plan_id, class: "text-white"%>
+            <%= f.hidden_field :plan_id, value: params[:plan_id], class: "form-control"%>
+          </div>
+
+          <%= f.submit "登録", class: "btn-block btn-white" %>
+        <% end %>
+        <%= link_to "spot登録を終了する", root_path, class: "btn-login text-black" %>
+
+      </div>
+    </div>
+  </div>
+</div>

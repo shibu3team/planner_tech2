@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20171201025305) do
   create_table "plans", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.decimal "time", null: false
+    t.integer "time", null: false
     t.integer "price", null: false
     t.integer "time_category", null: false
     t.integer "user_id", null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20171201025305) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "comment", null: false
-    t.decimal "valuation", null: false
+    t.integer "valuation", null: false
     t.integer "plan_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
@@ -61,8 +61,9 @@ ActiveRecord::Schema.define(version: 20171201025305) do
   create_table "spots", force: :cascade do |t|
     t.string "name", null: false
     t.string "address", null: false
-    t.decimal "spot_time", null: false
+    t.integer "spot_time", null: false
     t.integer "price", null: false
+    t.integer "plan_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,8 +78,8 @@ ActiveRecord::Schema.define(version: 20171201025305) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
-    t.string "password", null: false
-    t.text "profile", null: false
+    t.string "password_digest", null: false
+    t.text "profile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "uq_users_02", unique: true

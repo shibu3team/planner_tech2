@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PlannerTech2</title>
+    <title>Planner</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <nav class="navbar navbar-default navber-fixed-top navbar-transparent">
+      <!-- <div class="container"> -->
+            <%= link_to "Planner", new_spot_path, class:"navbar-brand" %>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if session[:user_id] %>
+          <li>
+            <%= link_to "ユーザー登録編集", edit_user_path(session[:user_id]) %>
+          </li>
+<!--
+          <li>
+            <%= link_to "スポット登録", new_spot_path %>
+          </li> -->
+
+
+          <li>
+            <%= link_to "プラン作成", new_plan_path %>
+          </li>
+
+
+          <li>
+            <%= link_to "ログアウト", logout_path,  method: :delete, data: {confirm: 'ログアウトしますか?' } %>
+          </li>
+
+          <li>
+            <%= link_to "ログイン中: #{session[:user_id]}", "#", class:"login-user" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "#"%>
+          </li>
+
+          <li>
+            <%= link_to "ログインしていません", "#", class: "login-user" %>
+          </li>
+
+        <% end %>
+
+      </ul>
+      </div>
+    </nav>
+
+
+    <% if flash[:notice] %>
+    　　<div class="alert alert-success">
+         <%= flash[:notice] %>
+    　　</div>
+    <% end %>
+    <% if flash[:alert] %>
+    　　<div class="alert alert-danger">
+    　　　　<%= flash[:alert] %>
+    　　</div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

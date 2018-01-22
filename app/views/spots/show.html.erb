@@ -1,0 +1,21 @@
+<div class="spot-index-wrapper">
+  <div class="container">
+    <div class = "space"></div>
+    <h1 class="text-center text-red login-title">Spot show</h1>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="spot-index-single">
+        <h4>すぽっと名</h4>
+        <%= @spot.name%><br>
+        <h4>住所</h4>
+        <%= @spot.address%><br>
+        <h4>所要時間</h4>
+        <%= @spot.spot_time%><br>
+        <h4>金額</h4>
+        <%= @spot.price%><br>
+      </div><br>
+        <%= link_to "プランに追加" %>
+      </div>
+    </div>
+  </div>
+</div>
