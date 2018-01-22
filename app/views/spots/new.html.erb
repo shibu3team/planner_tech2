@@ -32,10 +32,14 @@
             <%= f.text_field :price, class: "form-control"%>
           </div>
 
+          <div class="form-group">
+            <%= f.label :plan_id, class: "text-white"%>
+            <%= f.hidden_field :plan_id, class: "form-control"%>
+          </div>
 
           <%= f.submit "登録", class: "btn-block btn-white" %>
         <% end %>
-        <%= link_to "ログインはこちら", "#", class: "btn-login text-black" %>
+        <%= link_to "spot登録終了", "#", class: "btn-login text-black" %>
       </div>
     </div>
   </div>
