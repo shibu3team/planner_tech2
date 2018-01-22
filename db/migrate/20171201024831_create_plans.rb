@@ -3,7 +3,7 @@ class CreatePlans < ActiveRecord::Migration[5.1]
     create_table :plans do |t|
       t.string  :name,          null: false
       t.text    :description,   null: false
-      t.decimal :time,          null: false
+      t.integer :time,          null: false
       t.integer :price,         null: false
       t.integer :time_category, null: false
       t.integer :user_id,       null: false
