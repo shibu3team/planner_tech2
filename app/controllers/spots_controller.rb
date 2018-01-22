@@ -10,8 +10,10 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
+
+    binding.pry
     if @spot.save
-      redirect_to spots_path, notice: "登録が完了しました"
+      redirect_to root_path, notice: "登録が完了しました"
     else
       flash.now[:alert] = "登録に失敗しました"
       render :new

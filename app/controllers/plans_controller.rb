@@ -11,9 +11,8 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
-    binding.pry
     if @plan.save
-      redirect_to plan_path(@plan.id), notice: "登録が完了しました"
+      redirect_to new_plan_spot_path(@plan.id), notice: "登録が完了しました"
     else
       flash.now[:alert] = "登録に失敗しました"
       render :new
@@ -26,8 +25,7 @@ class PlansController < ApplicationController
 
   private
   def plan_params
-    params.require(:plan).permit(:name, :description, :time, :price, :time_category, :user_id)
+    params.require(:plan).permit(:name, :description, :time, :price, :time_category)
   end
-
 
 end

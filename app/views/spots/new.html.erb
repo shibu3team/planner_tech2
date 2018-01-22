@@ -13,7 +13,7 @@
         <% end %>
 
 
-
+<% console %>
           <div class="form-group">
             <%= f.label :name, class: "text-white"%>
             <%= f.text_field :name, class: "form-control"%>
@@ -31,11 +31,12 @@
             <%= f.label :price, class: "text-white"%>
             <%= f.text_field :price, class: "form-control"%>
           </div>
-
+          <% hidden_field_tag :plan_id, params[:plan_id] %>
 
           <%= f.submit "登録", class: "btn-block btn-white" %>
         <% end %>
         <%= link_to "ログインはこちら", "#", class: "btn-login text-black" %>
+
       </div>
     </div>
   </div>
